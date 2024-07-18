@@ -1,13 +1,14 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { DocumentService } from './document.service';
-import { Document } from './document.interface';
 
 @Controller('document')
 export class DocumentController {
   constructor(private readonly documentService: DocumentService) {}
 
   @Post('generate')
-  async generateDocument(@Body() body: { templateName: string; data: Document }): Promise<string> {
-    return this.documentService.generateDocument(body.templateName, body.data);
+  @UseInterceptors(FileInterceptor('pdfFile'))
+  async generateDocument(@UploadedFile() pdfFile: Express.Multer.File): Promise<string> {
+    return this.documentService.generateDocument('template1', pdfFile);
   }
 }

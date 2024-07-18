@@ -6,7 +6,7 @@ import * as pdf from 'pdf-parse';
 
 @Injectable()
 export class DocumentService {
-  async generateDocument(templateName: string, pdfFile: Express.Multer.File): Promise<string> {
+async generateDocument(templateName: string, pdfFile: Express.Multer.File): Promise<string> {
     if (!templateName) {
       throw new NotFoundException('Template name is required.');
     }

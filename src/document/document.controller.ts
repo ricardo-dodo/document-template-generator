@@ -7,7 +7,7 @@ export class DocumentController {
   constructor(private readonly documentService: DocumentService) {}
 
   @Post('generate')
-  @UseInterceptors(FileInterceptor('pdfFile'))
+  @UseInterceptors(FileInterceptor('document'))
   async generateDocument(@UploadedFile() pdfFile: Express.Multer.File): Promise<string> {
     return this.documentService.generateDocument('template1', pdfFile);
   }

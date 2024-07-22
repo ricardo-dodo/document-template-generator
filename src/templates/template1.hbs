@@ -7,49 +7,62 @@
 </head>
 <body>
     <header>
-        <h1>{{title}}</h1>
-        <p>{{content}}</p>
-        <p>Author: {{author}}</p>
-        <p>Created At: {{createdAt}}</p>
+        <div style="text-align: center;">
+            <h2>{{header.organization}}</h2>
+            <h3>{{header.unit}}</h3>
+            <p>{{header.address}}</p>
+            <p>Telp: {{header.phone}}, Fax: {{header.fax}}</p>
+            <p>Email: {{header.email}}, website: {{header.website}}</p>
+        </div>
     </header>
-    
+
     <main>
-        <!-- Section Umum -->
-        <section id="general">
-            <h2>Informasi Umum</h2>
-            <p>{{generalInfo}}</p>
+        <!-- Section Nomor Surat -->
+        <section id="nomor_surat">
+            <p>Nomor: {{nomor_surat}}</p>
+            <p>Lampiran: {{lampiran}}</p>
+            <p>Hal: {{hal}}</p>
         </section>
-        
-        <!-- Section Surat Pengantar -->
-        <section id="intro">
-            <h2>Surat Pengantar</h2>
-            <p>{{intro}}</p>
+
+        <!-- Section Penerima Surat -->
+        <section id="penerima_surat">
+            <p>Yth. {{penerima}}</p>
+            <p>di {{lokasi_penerima}}</p>
         </section>
-        
-        <!-- Section Surat Tugas -->
-        <section id="assignment">
-            <h2>Surat Tugas</h2>
-            <p>{{assignment}}</p>
+
+        <!-- Section Isi Surat -->
+        <section id="isi_surat">
+            <p>{{isi_surat}}</p>
         </section>
-        
-        <!-- Section Pedoman -->
-        <section id="guidelines">
-            <h2>Pedoman</h2>
-            <p>{{guidelines}}</p>
+
+        <!-- Section Penutup Surat -->
+        <section id="penutup_surat">
+            <p>{{penutup_surat}}</p>
+            <p>{{footer.greeting}}</p>
+            <p>{{footer.position}}</p>
+            <p>{{footer.signature}}</p>
+            <p>{{footer.name}}</p>
         </section>
-        
-        <!-- Section Laporan Hasil -->
-        <section id="report">
-            <h2>Laporan Hasil</h2>
-            <h3>Simpulan dan Rekomendasi</h3>
-            <p>{{reportSummary}}</p>
-            <h3>Uraian Audit</h3>
-            <p>{{auditDetails}}</p>
+
+        <!-- Section Tembusan -->
+        <section id="tembusan">
+            <p>Tembusan Yth.:</p>
+            <ul>
+                {{#each tembusan}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </section>
+
+        <!-- Section Layanan Pengaduan -->
+        <section id="layanan_pengaduan">
+            <p>{{pengaduan.message}}</p>
+            <p>{{pengaduan.contact}}</p>
         </section>
     </main>
-    
+
     <footer>
-        <p>{{footer}}</p>
+        <p>{{footer.disclaimer}}</p>
     </footer>
 </body>
 </html>
